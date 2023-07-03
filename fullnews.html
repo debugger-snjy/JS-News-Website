@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>Instant News !</title>
+</head>
+
+<body onload="fetchNews()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">Instant News 🚀</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/headlines.html">Top Headlines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/fullnews.html">Full News</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container Newsbar my-5">
+        <div class="row">
+            <h2 id='NewsCategory'>News Category<span class="badge bg-dark mx-3">By Instant News</span></h2>
+            <div class="row my-2 " id="Keywords">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="form">
+                            Keyword
+                            <input type="text" class="form-control" id="UserKeyword"
+                                placeholder="Search words in the articles . . ." value="Bitcoin">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <input type="radio" name="UserSearchChoice" class="searchKeywordsType search my-2"
+                                    value="Headlines" id="Headlines"><span class="search">Headlines Only</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="radio" name="UserSearchChoice" class="searchKeywordsType search my-2"
+                                    value="HeadlineWholeArticle" id="HeadlineWholeArticle" checked><span
+                                    class="search">Whole Articles and Headline </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    Sort By<select class="form-select" aria-label="Default select example" id="UserSortby">
+                        <option value="Latest" selected>Latest Published</option>
+                        <option value="Popularity">Popularity</option>
+                        <option value="Relevancy">Relevancy</option>
+                    </select>
+                </div>
+                <div class="col">
+                    From <br><input class="form-control" type="date" name="UserNewsFrom" id="UserNewsFrom">
+                </div>
+                <div class="col">
+                    To <br><input class="form-control" type="date" name="UserNewsTo" id="UserNewsTo">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 align-center" id="searchdiv">
+                <button type="button" class="btn btn-primary" id="searchNews">Search News</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container accordion" id="accordionExample">
+        <div class="accordion-item" id="SearchedNews">
+
+        </div>
+    </div>
+    <div class="container-fluid bg-black text-white" id="footer">
+        <div class="row">
+            <div class="col col-12 col-md-6 col-sm-12 p-4">
+                <center>
+                    <span><b>About Us</b></span><br>
+                </center>
+                This is Specially designed to <b>save time for reading News.</b>
+                <br>It have <strong>2 Sections</strong> : Full News and Top Headlines
+                <br>In <strong>Full News</strong>, We will get the full news regarding our searched topic with the
+                filter of date.
+                <br>In <strong>Top Headlines</strong>, we have different categories and can read regarding the specific
+                keywords.
+
+            </div>
+            <div class="col col-12 col-md-6 col-sm-12 p-4">
+                <center>
+                    <span><b>Contact Us</b></span><br>
+                    <a class="link mx-10 m-sm-3 mx-xl-3" href="mailto:sanjayasukhwani@gmail.com" target="_blank"><img
+                            class="my-2 social-media" src="Images/gmail.png" alt="Gmail icon" height="50px"></a>
+                    <a class="link  mx-10 m-sm-3 mx-xl-3" href="https://twitter.com/sukhwani_sanjay"
+                        target="_blank"><img class="my-2 social-media" src="Images/twitter.png" alt="Twitter icon"
+                            height="50px"></a>
+                    <a class="link  mx-10 m-sm-3 mx-xl-3" href="https://www.facebook.com/profile.php?id=100069005771579"
+                        target="_blank"><img class="my-2 social-media" src="Images/facebook.png" alt="Facebook icon"
+                            height="50px"></a>
+                    <a class="link  mx-10 m-sm-3 mx-xl-3" href="https://www.instagram.com/itssanjay.sukhwani/"
+                        target="_blank"><img class="my-2 social-media" src="Images/instagram.png" alt="Instagram icon"
+                            height="50px"></a>
+                </center>
+            </div>
+        </div>
+        <marquee class="my-1"><b>Designed and Developed with 💜 by Sanjay Sukhwani </b></marquee>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="fullnews.js"></script>
+</body>
+
+</html>

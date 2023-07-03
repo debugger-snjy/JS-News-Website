@@ -13,21 +13,21 @@ function fetchheadlines() {
     let newsAccordion = document.getElementById("newsAccordion");
 
     let keyword = document.getElementById('UserKeyword').value;
-    console.log("keyword : ",keyword);
+    // console.log("keyword : ",keyword);
     let category = document.getElementById('UserCategory').value;
-    console.log("category : ",category);
+    // console.log("category : ",category);
     let HeadlineCountry = document.getElementById('Headline-Country').value;
-    console.log("Headline : ",HeadlineCountry);
+    // console.log("Headline : ",HeadlineCountry);
     let url;
 
     if((keyword=="" || keyword==null ||keyword==undefined) && category=="all")
     {
-        console.log("Empty Keyword");
+        // console.log("Empty Keyword");
         url = `https://newsapi.org/v2/top-headlines?country=${HeadlineCountry}&apiKey=${APIKey}`
     }
     else if((keyword=="" || keyword==null ||keyword==undefined) && category!="all")
     {
-        console.log("Empty Keyword and other category");
+        // console.log("Empty Keyword and other category");
         url = `https://newsapi.org/v2/top-headlines?category=${category}&country=${HeadlineCountry}&apiKey=${APIKey}`
     }
     else
@@ -41,7 +41,7 @@ function fetchheadlines() {
             url = `https://newsapi.org/v2/top-headlines?q=${keyword}&category=${category}&country=${HeadlineCountry}&apiKey=${APIKey}`
         }
         
-        console.log(url);
+        // console.log(url);
     }
     // Creating a get request
     const xhr = new XMLHttpRequest();
@@ -52,12 +52,12 @@ function fetchheadlines() {
         {
             let APIData = JSON.parse(this.responseText);
             let NewsArticels = APIData.articles;
-            console.log("Data : ", NewsArticels);
+            // console.log("Data : ", NewsArticels);
 
             let newsHTML = "";
 
             NewsArticels.forEach((item,index) => {
-                console.log(item);
+                // console.log(item);
                 let news = `<h2 class="accordion-header" id="heading${index}">
                                 <button class="accordion-button collapsed" id="NewsHeading" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}"
                                     aria-expanded="true" aria-controls="collapse${index}">
@@ -95,4 +95,3 @@ document.getElementById('Headline-Country').addEventListener('input',()=>{
     // console.log(HeadlineCountry);
     fetchheadlines();
 });
-

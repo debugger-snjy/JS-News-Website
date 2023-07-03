@@ -42,22 +42,22 @@ function fetchNews() {
         searchType = "q";
     }
     let url = `https://newsapi.org/v2/everything?sortBy=${sortBy}`;
-    console.log("keyword : ", keyword);
-    console.log("sortBy : ", sortBy);
-    console.log("searchType : ", searchType);
+    // console.log("keyword : ", keyword);
+    // console.log("sortBy : ", sortBy);
+    // console.log("searchType : ", searchType);
 
-    console.log(From);
-    console.log(To);
+    // console.log(From);
+    // console.log(To);
     if((From!=null && To!=null && From!=undefined && To!=undefined))
     {   
         if (FromYear <= ToYear && FromMonth <= ToMonth && FromDate < ToDate)
         {
-            console.log(FromYear);
-            console.log(FromMonth);
-            console.log(FromDate);
-            console.log(ToYear);
-            console.log(ToMonth);
-            console.log(ToDate);
+            // console.log(FromYear);
+            // console.log(FromMonth);
+            // console.log(FromDate);
+            // console.log(ToYear);
+            // console.log(ToMonth);
+            // console.log(ToDate);
         }
         else
         {
@@ -84,7 +84,7 @@ function fetchNews() {
     }
     url += `&apiKey=${APIKey}`;
 
-    console.log(url);
+    // console.log(url);
 
     const xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
@@ -97,12 +97,12 @@ function fetchNews() {
         {
             let APIData = JSON.parse(this.responseText);
             let NewsArticels = APIData.articles;
-            console.log("Data : ", NewsArticels);
+            // console.log("Data : ", NewsArticels);
 
             let newsHTML = "";
 
             NewsArticels.forEach((item,index) => {
-                console.log(item);
+                // console.log(item);
                 let news = `<h2 class="accordion-header" id="heading${index}">
                                 <button class="accordion-button collapsed" id="NewsHeading" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}"
                                     aria-expanded="true" aria-controls="collapse${index}">
